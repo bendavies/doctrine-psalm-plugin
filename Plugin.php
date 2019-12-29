@@ -35,6 +35,7 @@ class Plugin implements PluginEntryPointInterface
         $files = glob(__DIR__ . '/' . 'stubs/*.php');
         [$ver] = explode('@', $this->getPackageVersion('doctrine/collections'));
         if (version_compare($ver, 'v1.6.0', '>=')) {
+            /** @var array<int,string> $files */
             $files = preg_grep('/Collections\.php$/', $files, PREG_GREP_INVERT);
         }
 
